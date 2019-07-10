@@ -10,7 +10,7 @@ script:
   - docker run -e CI=true  nadek/react-test npm test  -- --coverage
 
 after_success:
-  - docker fuild -t nadek/multi-client ./client
+  - docker build -t nadek/multi-client ./client
   - docker build -t nadek/multi-nginx ./nginx
   - docker build -t nadek/multi-server ./server
   - docker build -t nadek/multi-worker ./worker
