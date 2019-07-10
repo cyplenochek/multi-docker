@@ -10,13 +10,13 @@ script:
   - docker run -e CI=true  nadek/react-test npm test  -- --coverage
 
 after_success:
-  - docker build -t nadek/multi-client ./client
-  - docker build -t nadek/multi-nginx ./nginx
-  - docker build -t nadek/multi-server ./server
-  - docker build -t nadek/multi-worker ./worker
+  - docker build -t nkabanova/multi-client ./client
+  - docker build -t nkabanova/multi-nginx ./nginx
+  - docker build -t nkabanova/multi-server ./server
+  - docker build -t nkabanova/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push nadek/multi-client
-  - docker push nadek/multi-nginx
-  - docker push nadek/multi-server
-  - docker push nadek/multi-worker
+  - docker push nkabanova/multi-client
+  - docker push nkabanova/multi-nginx
+  - docker push nkabanova/multi-server
+  - docker push nkabanova/multi-worker
 
