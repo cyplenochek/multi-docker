@@ -1,0 +1,44 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "nkabanova/multi-client",
+      "hostname": "client",
+      "essential": false,
+      "memory": 256
+    },
+    {
+      "name": "server",
+      "image": "nkabanova/multi-server",
+      "hostname": "api",
+      "essential": false,
+      "memory": 256
+    },
+    {
+      "name": "worker",
+      "image": "nkabanova/multi-worker",
+      "hostname": "worker",
+      "essential": false,
+      "memory": 256
+    },
+    {
+      "name": "nginx",
+      "image": "nkabanova/multi-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "memory": 256
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort":80
+        }
+      ],
+      "links": ["client", "server"]
+    }
+
+
+
+  ]
+
+}
