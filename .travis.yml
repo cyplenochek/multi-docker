@@ -3,7 +3,6 @@ services:
   - docker
 
 
-
 before_install:
   - docker build -t nadek/react-test -f ./client/Dockerfile.dev ./client
 
